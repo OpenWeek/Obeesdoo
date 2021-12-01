@@ -31,6 +31,9 @@ Modification of product module for the needs of beescoop
   The only editable field is Purchase Price.
   Through "Action > Adapt Sales Price", the user can, on the selected products,
   adapt the Sales Price according to the Suggested Price.
+- Allow searching a product given the product reference of the main
+  seller (also known as the `product_code` of the `product.supplierinfo`
+  object).
 
 Please note that this model makes assumptions when computing the suggested price:
 
