@@ -26,6 +26,24 @@
 
     <template id="qweb_template_pricetag_normal">
         <t t-call="web.basic_layout">
+            <t t-set="head">
+                <!-- <t t-call-assets="web.report_assets_common"/> -->
+                <link
+                    href="/beesdoo_print_label/static/css/pricetag_base.scss"
+                    rel="stylesheet"
+                    type="text/scss"
+                />
+            <link
+                    href="/beesdoo_print_label/static/css/pricetag_normal_base.scss"
+                    rel="stylesheet"
+                    type="text/scss"
+                />
+            <link
+                    href="/beesdoo_print_label/static/css/pricetag_normal_normal.scss"
+                    rel="stylesheet"
+                    type="text/scss"
+                />
+            </t>
             <t t-foreach="category_data['lines']" t-as="line">
                 <t t-foreach="line.quantity" t-as="q">
                     <t
