@@ -20,60 +20,10 @@ class Partner(models.Model):
     parent_eater_id = fields.Many2one(
         "res.partner", string="Parent Worker", readonly=True
     )
-    parent_barcode = fields.Char(
-        compute="_compute_parent_bar_code", string="Parent Barcode", store=True
-    )
-    cooperator_type = fields.Selection(
-        [
-            ("share_a", "Share A"),
-            ("share_b", "Share B"),
-            ("share_c", "Share C"),
-        ],
-        store=True,
-        compute=None,
-    )
+
     country_id = fields.Many2one(
         required=True, default=lambda self: self.env.ref("base.be")
     )
-
-    @api.multi
-    @api.depends(
-        "parent_eater_id",
-        "parent_eater_id.barcode",
-        "eater",
-    )
-    def _compute_parent_bar_code(self):
-        for partner in self:
-            if partner.eater == "eater":
-                partner.parent_barcode = partner.parent_eater_id.barcode
-
-    @api.multi
-    @api.constrains("child_eater_ids", "parent_eater_id")
-    def _check_number_of_eaters(self):
-        """The owner of an A share can have a maximum of two eaters but
-        the owner of a B share can have a maximum of three eaters.
-        """
-        for partner in self:
-            # Get the default_code of the share for the current eater and his parent
-            share_type_code = partner.cooperator_type
-            parent_share_type_code = partner.parent_eater_id.cooperator_type
-            # Raise exception
-            if share_type_code == "share_b" or parent_share_type_code == "share_b":
-                if (
-                    len(partner.child_eater_ids) > 3
-                    or len(partner.parent_eater_id.child_eater_ids) > 3
-                ):
-                    raise ValidationError(
-                        _("You can only set three additional eaters per worker")
-                    )
-            else:
-                if (
-                    len(partner.child_eater_ids) > 2
-                    or len(partner.parent_eater_id.child_eater_ids) > 2
-                ):
-                    raise ValidationError(
-                        _("You can only set two additional eaters per worker")
-                    )
 
     @api.multi
     def write(self, values):
@@ -108,6 +58,5 @@ class Partner(models.Model):
             "parent_eater_id": self.id,
             "email": email,
             "country_id": self.country_id.id,
-            "member_card_to_be_printed": True,
         }
         return self.env["res.partner"].create(partner_data)
