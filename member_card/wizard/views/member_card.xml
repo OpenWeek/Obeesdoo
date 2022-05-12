@@ -6,7 +6,7 @@
         <field name="model">membercard.new.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <group groups="beesdoo_base.group_force_barcode">
+                <group groups="member_card.group_force_barcode">
                     <field name="force_barcode" />
                 </group>
                 <separator string="Reason" />
@@ -54,7 +54,7 @@
         view_mode="form"
         target="new"
         key2="client_action_multi"
-        id="beesdoo_base_action_request_membercard_printing"
+        id="member_card_action_request_membercard_printing"
     />
 
 
@@ -85,6 +85,6 @@
         view_mode="form"
         target="new"
         key2="client_action_multi"
-        id="beesdoo_base_action_set_membercard_as_printed"
+        id="member_card_action_set_membercard_as_printed"
     />
 </odoo>
