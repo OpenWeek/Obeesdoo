@@ -15,7 +15,7 @@
     "website": "https://github.com/beescoop/Obeesdoo",
     "category": "Account Module",
     "version": "12.0.1.1.0",
-    "depends": ["account", "beesdoo_base"],
+    "depends": ["account"],
     "data": [
         "security/invoice_security.xml",
         "views/account_invoice.xml",

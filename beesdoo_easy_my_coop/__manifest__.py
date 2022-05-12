@@ -6,7 +6,7 @@
     "category": "Cooperative management",
     "version": "12.0.1.0.2",
     "depends": [
-        "beesdoo_base",
+        "eater",
         "beesdoo_shift",
         "easy_my_coop",
         "easy_my_coop_website",
