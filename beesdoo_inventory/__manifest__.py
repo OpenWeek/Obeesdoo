@@ -13,7 +13,7 @@
     "website": "https://github.com/beescoop/Obeesdoo",
     "category": "Inventory",
     "version": "12.0.1.0.1",
-    "depends": ["delivery", "beesdoo_base", "beesdoo_product"],
+    "depends": ["delivery", "beesdoo_product"],
     "data": ["views/stock.xml"],
     "installable": True,
     "license": "AGPL-3",
