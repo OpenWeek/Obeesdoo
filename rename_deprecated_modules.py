@@ -12,7 +12,9 @@ env = env  # noqa: F821
 
 # Comments are there to prevent merge conflicts. Put the dictionary entry UNDER
 # the comment of the respective module.
-renamed_modules = {}
+renamed_modules = {
+    "beesdoo_website_eater": "shift_portal_eater",
+}
 
 _logger.info("rename beesdoo_x modules")
 openupgrade.update_module_names(env.cr, renamed_modules.items(), merge_modules=True)
