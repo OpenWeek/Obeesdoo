@@ -14,7 +14,12 @@
     "website": "https://github.com/beescoop/Obeesdoo",
     "category": "Sales",
     "version": "12.0.2.0.0",
-    "depends": ["point_of_sale", "purchase", "portal", "partner_firstname"],
+    "depends": [
+        "company_supplier_context",
+        "member_card",
+        "eater",
+        "eater_member_card",
+    ],
     "data": [],
     "installable": True,
     "demo": ["demo/cooperators.xml", "demo/eaters.xml"],
