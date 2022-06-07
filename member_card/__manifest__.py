@@ -12,6 +12,9 @@
     "category": "Sales",
     "version": "12.0.1.0.1",
     "depends": ["point_of_sale", "purchase", "portal", "partner_firstname"],
+    "external_dependencies": {
+        "python": ["openupgradelib"],
+    },
     "data": [
         "security/groups.xml",
         "security/ir.model.access.csv",
