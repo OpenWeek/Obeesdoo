@@ -22,4 +22,5 @@
     "installable": True,
     "demo": ["demo/cooperators.xml", "demo/eaters.xml"],
     "license": "AGPL-3",
+    "pre_init_hook": "rename_xml_ids",
 }
