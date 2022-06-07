@@ -15,9 +15,7 @@
     "category": "Sales",
     "version": "12.0.2.0.0",
     "depends": ["point_of_sale", "purchase", "portal", "partner_firstname"],
-    "data": [
-        "views/partner.xml",
-    ],
+    "data": [],
     "installable": True,
     "demo": ["demo/cooperators.xml", "demo/eaters.xml"],
     "license": "AGPL-3",
