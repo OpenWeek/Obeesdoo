@@ -22,6 +22,5 @@
     ],
     "data": [],
     "installable": True,
-    "demo": ["demo/cooperators.xml", "demo/eaters.xml"],
     "license": "AGPL-3",
 }
