@@ -23,7 +23,7 @@
         "purchase",
         "product_main_supplier",
         "sale_suggested_price",
-        "sale_edit_price_wizard",
+        "sale_adapt_price_wizard",
     ],
     "data": [
         "data/product_label.xml",
