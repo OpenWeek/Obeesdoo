@@ -98,6 +98,11 @@ class BeesdooProduct(models.Model):
         readonly=True,
         store=True,
     )
+    purchase_price = fields.Float(
+        string="Purchase Price",
+        compute="_compute_purchase_price",
+        inverse="_inverse_purchase_price",
+    )
 
     @api.depends("uom_id", "uom_id.category_id", "uom_id.category_id.type")
     @api.multi
@@ -290,6 +295,17 @@ class BeesdooProductSupplierInfo(models.Model):
     _inherit = "product.supplierinfo"
 
     price = fields.Float("Price")
+    price_write_date = fields.Datetime(
+        string="Price Last Updated On",
+        default=fields.Datetime.now,
+        readonly=True,
+    )
+
+    def write(self, vals):
+        price = vals.get("price")
+        if price and price != self.price:
+            vals["price_write_date"] = fields.Datetime.now()
+        super().write(vals)
 
 
 class BeesdooUOMCateg(models.Model):

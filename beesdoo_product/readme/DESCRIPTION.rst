@@ -32,6 +32,7 @@ Modification of product module for the needs of beescoop
   Through "Action > Adapt Sales Price", the user can, on the selected products,
   adapt the Sales Price according to the Suggested Price.
 
+
 Please note that this model makes assumptions when computing the suggested price:
 
 - It supposes that each product has only one supplier and that products coming from multiple suppliers

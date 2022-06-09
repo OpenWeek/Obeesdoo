@@ -11,7 +11,16 @@ class AdaptSalesPriceWizard(models.TransientModel):
     product_ids = fields.Many2many("product.template", default=_get_selected_products)
 
     @api.multi
+    def adapt_list_price(self, vals, suggested_price=None):
+        self.ensure_one()
+        if suggested_price is None:
+            suggested_price = self.suggested_price
+        vals.setdefault("list_price", suggested_price)
+
+    @api.multi
     def adapt_sales_price(self):
         self.ensure_one()
         for product in self.product_ids:
-            product.write({"list_price": product.suggested_price})
+            vals = {}
+            product.adapt_list_price(vals)
+            product.write(vals)
